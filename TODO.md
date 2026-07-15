@@ -1,9 +1,10 @@
-+ Temperature labels
-  + allow caller to specify
-  + get correct.
-      + looks like the upper x limit is wrong.
++ get temperature axis max and labels correct.
+   + some hard coded constant that may need to be adjusted for different degc min and max.
 
 + wind barbs to match official diagrams.
+
++ √ Temperature min and max and tick marks.
+  + allow caller to specify
 
 + √ user-specifiable colors for 2 curves and CAPE.
    + √ 2 curves - `temp.col`, `dew.col`
