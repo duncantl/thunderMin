@@ -73,7 +73,7 @@ function (ptop = 100, isoterms_col = "#d8be9b", temp_stripes = FALSE,
     xr = skewtx(temp1050, skewty(rep(1050, times = length(temp1050))))
     yr = skewty((rep(1050, times = length(temp1050))))
     xl = skewtx(temp600, skewty(rep(600, times = length(temp600))))
-    if (!is.na(mixing_ratio_col) || mixing_ratio_col != "") {
+    if (!is.na(mixing_ratio_col) && mixing_ratio_col != "") {
         segments(xl, yl, xr, yr, col = mixing_ratio_col, lwd = 0.8, 
             lty = 1)
         text(xl, yl + 0.75, labels = c(1, 2, 4, 8, 16), col = "#8470FF90", 
