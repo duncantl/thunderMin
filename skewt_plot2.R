@@ -4,7 +4,9 @@ function (ptop = 100, isoterms_col = "#d8be9b", temp_stripes = FALSE,
     moist_adiabats_col = "#00FF0095", deg45 = FALSE, isotherm0 = TRUE, 
     close_par = TRUE, ...
   , segments = function(...) NULL,
-    degc = seq(-50, 50, by = 10)) 
+    degc = seq(-50, 50, by = 10),
+    xlab = expression(paste("Temperature [°C]")),
+    ylab = "Pressure [hPa]") 
 {
     oldpar = par(no.readonly = TRUE)
     if (close_par) {
@@ -16,6 +18,7 @@ function (ptop = 100, isoterms_col = "#d8be9b", temp_stripes = FALSE,
     ymax = skewty(1050)
     ymin = skewty(ptop)
     xmin = skewtx(-50, skewty(1050))
+    # orig:   xmax = skewtx(48.3, skewty(995))
     xmax = max(skewtx(48.3, skewty(995)), max(degc))
     xc = c(xmin, xmin, xmax, xmax, xmin)
     yc = c(ymin, ymax, ymax, ymin, ymin)
@@ -24,7 +27,7 @@ function (ptop = 100, isoterms_col = "#d8be9b", temp_stripes = FALSE,
     ypos = skewty(1050)
     axis(1, at = skewtx(degc, ypos), labels = degc, 
         pos = ymax, cex.axis = 0.65, padj = -0.15, tck = -0.01)
-    mtext(side = 1, line = 1, expression(paste("Temperature [°C]")), 
+    mtext(side = 1, line = 1, xlab, 
         cex = 0.65)
     pres = c(1050, 1000, 850, 700, 500, 300, 200, 100)
     NPRES = length(pres)
@@ -33,7 +36,7 @@ function (ptop = 100, isoterms_col = "#d8be9b", temp_stripes = FALSE,
     ypos = skewty(pres[2:NPRES])
     axis(2, las = 1, at = ypos, labels = pres[2:NPRES], pos = xmin, 
         cex.axis = 0.65, lwd = 0)
-    mtext(side = 2, line = 1.3, "Pressure [hPa]", padj = 2, cex = 0.65)
+    mtext(side = 2, line = 1.3, ylab, padj = 2, cex = 0.65)
     kinkx = skewtx(10.5, skewty(400))
     temp = seq(from = -150, to = 60, by = 10)
     NTEMP = length(temp[temp < 60])

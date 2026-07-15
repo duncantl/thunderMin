@@ -1,3 +1,22 @@
+if(FALSE) {
+
+    with(carr,
+         foo(
+             pressure = pressure_hPa,
+             altitude = geopotential.height_m, # altitude,
+             temp = temperature_C,
+             dpt = dew.point.temperature_C,
+             wd = wind.direction_degree,
+             ws = wind.speed_m.s,
+             title = "Carr Fire - July 28, 2018",
+             showCAPEBoundary = FALSE,
+             xlab = "", ylab = ""
+         )
+         )
+}
+
+
+
 foo =
 function (pressure, altitude, temp, dpt, wd, ws, title = "", 
     parcel = "MU", max_speed = 25, buoyancy_polygon = TRUE, SRH_polygon = "03km_RM", 
@@ -5,7 +24,9 @@ function (pressure, altitude, temp, dpt, wd, ws, title = "",
     storm_motion = c(999, 999),
     ...,
     showCAPEBoundary = TRUE,
-    showCAPEText = showCAPEBoundary)
+    showCAPEText = showCAPEBoundary,
+    xlab = expression(paste("Temperature [°C]")),
+    ylab = "Pressure [hPa]")
 {
     oldpar = par(no.readonly = TRUE)
     on.exit(par(oldpar))
@@ -24,7 +45,7 @@ function (pressure, altitude, temp, dpt, wd, ws, title = "",
                               storm_motion = storm_motion)
 
     skewt_plot(isoterms_col = NA, mixing_ratio_col = "", dry_adiabats_col = "", moist_adiabats_col = "",
-               isotherm0 = FALSE , close_par = FALSE)
+               isotherm0 = FALSE , close_par = FALSE, xlab = xlab, ylab = ylab)
     # Fix function and add this to call: degc = seq(-60, 40, by = 10)
 
     skewt_lines(output2$dpt, output2$pressure, col = t_col("forestgreen", 10), lwd = 2, ptop = 100)
@@ -41,7 +62,6 @@ function (pressure, altitude, temp, dpt, wd, ws, title = "",
     # Need any intermediate variables
     # Boundary
     if(parcel != "none" && parcel != "") {
-        browser()
         if(showCAPEBoundary)
             skewt_lines(output$MU, output$pressure, col = "orange", lty = 1, lwd = 1, ptop = 100)
         
@@ -67,8 +87,7 @@ t_col = function(color, percent, name = NULL) {
 showBarbs =
 function(output)
 {
-    par(fig = c(0.46, 0.57, 0.03, 0.95), new = TRUE, mar = c(0, 
-        0, 0, 0), oma = c(0, 0, 0, 0))
+    par(fig = c(0.93, 1., 0.03, 0.95), new = TRUE, mar = c(0, 0, 0, 0), oma = c(0, 0, 0, 0))
     over100 = output[["pressure"]] > 100
     sounding_barbs(pressure = output[["pressure"]][over100], 
                    ws = output[["ws"]][over100], wd = output[["wd"]][over100], 
