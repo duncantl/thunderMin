@@ -17,9 +17,11 @@ function (ptop = 100, isoterms_col = "#d8be9b", temp_stripes = FALSE,
     }
     ymax = skewty(1050)
     ymin = skewty(ptop)
-    xmin = skewtx(-50, skewty(1050))
-    # orig:   xmax = skewtx(48.3, skewty(995))
-    xmax = max(skewtx(48.3, skewty(995)), max(degc))
+    # orig
+    # xmin = skewtx(-50, skewty(1050))
+    # xmax = skewtx(48.3, skewty(995))
+    xmin = skewtx(min(degc), skewty(1050))
+    xmax = skewtx(max(degc), skewty(995))  #????
     xc = c(xmin, xmin, xmax, xmax, xmin)
     yc = c(ymin, ymax, ymax, ymin, ymin)
     plot(xc, yc, type = "l", axes = FALSE, xlab = "", ylab = "", 
