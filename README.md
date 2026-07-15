@@ -30,7 +30,7 @@ devtools::install_github('duncantl/thunderMin')
 (assuming the devtools package is installed.)
 
 
-Alternatively, one can download the zip file of the git repository and 
+Alternatively, one can download the [zip file](https://github.com/duncantl/thunderMin/archive/refs/heads/main.zip) of the git repository and 
 install from that locally.
 
 
