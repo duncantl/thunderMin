@@ -1,14 +1,23 @@
+# Simple(ish) skewT-log P plots
+
+This adapts the code from the thunder package to create
+the skew-T log P plot without the righ hand panel with many more 
+plots and tables.
+Also, this allows one to omit the isotherms and other curves typically on the plot.
+This makes the remaining elements clearer.
+
 
 # Installation
 
 ```
 install.packages('thunder')
-source("dtl.R")
-source("skewt_plot2.R")
+devtools::install_github('duncantl/thunderMin')
 ```
+(assuming the devtools package is installed.)
 
-We can make this into a package that imports thunder and 
-masks skewt_plot() and sounding_plot().
+
+Alternatively, one can download the zip file of the git repository and 
+install from that locally.
 
 
 # Use
@@ -16,6 +25,17 @@ masks skewt_plot() and sounding_plot().
 ```{r}
 data(Carr)
 draw(Carr)
+```
+
+
+See the list of data.frames already in the package:
+```
+data(package = "thunderMin")
+```
+
+Get a new sounding dataset with the station id and date:
+```
+d = getSoundingData(73033, "2026-03-01")
 ```
 
 # URLs
