@@ -13,8 +13,10 @@ masks skewt_plot() and sounding_plot().
 
 # Use
 
-draw()
-
+```{r}
+data(Carr)
+draw(Carr)
+```
 
 # URLs
 
