@@ -7,6 +7,20 @@ Also, this allows one to omit the isotherms and other curves typically on the pl
 This makes the remaining elements clearer.
 
 
+The sounding plot from Wyoming Atmospheric Science group
+
+<img src="figures/wyoming.png"></img>
+
+
+The full thunder package plot
+
+<img src="figures/carr_thunder.png"></img>
+
+This package
+
+<img src="figures/carr_min.png"></img>
+
+
 # Installation
 
 ```
