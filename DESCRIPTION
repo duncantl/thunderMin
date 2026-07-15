@@ -1,7 +1,7 @@
 Package: thunderMin
 Version: 0.1-0
 Description: Adaptation of sounding_plot() from the thunder package to just have the skewt plot with 2 curves and CAPE.
-Author: c(person("Bartosz", "Czernecki",
+Authors@R: c(person("Bartosz", "Czernecki",
              email = "nwp@amu.edu.pl",
              role = c("aut", "cre"), comment = c(ORCID = "0000-0001-6496-1386")),
              person("Mateusz", "Taszarek",
@@ -10,7 +10,8 @@ Author: c(person("Bartosz", "Czernecki",
              person("Piotr", "Szuster",
              email = "retsuz@gmail.com",
              role = c("aut"), comment = c(ORCID = "0000-0001-7937-8046")),
-	     person("Duncan", "Temple Lang", role = "ctb")
+	     person("Duncan", "Temple Lang", role = "ctb"))
 Maintainer: <duncan@r-project.org>
 Imports: thunder
 LazyData: true
+License: GPL (>= 2)
