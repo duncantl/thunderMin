@@ -24,8 +24,9 @@ function(d, title = "Carr Fire - July 28, 2018",
          CAPE.boundary.col = "orange",
          CAPE.cols = c("#FF000035", "#FFA50025"),
          temp.col = "red",
-         dew.col = "forestgreen",         
-         xlab = "", ylab = "")
+         dew.col = "black",         
+         xlab = "", ylab = "",
+         degc = seq(-40, 60, by = 10))
 {
     sounding_plot(
         pressure = d$pressure_hPa,
@@ -41,7 +42,8 @@ function(d, title = "Carr Fire - July 28, 2018",
         CAPE.cols = CAPE.cols,
         temp.col = temp.col,
         dew.col = dew.col,
-        xlab = xlab, ylab = ylab
+        xlab = xlab, ylab = ylab,
+        degc = degc
     )
 }
 
@@ -61,7 +63,8 @@ function (pressure, altitude, temp, dpt, wd, ws, title = "",
           temp.col = "red",
           dew.col = "forestgreen",
           xlab = expression(paste("Temperature [°C]")),
-          ylab = "Pressure [hPa]"
+          ylab = "Pressure [hPa]",
+          degc = seq(-40, 60, by = 10)
           )
 {
     oldpar = par(no.readonly = TRUE)
@@ -81,8 +84,7 @@ function (pressure, altitude, temp, dpt, wd, ws, title = "",
                               storm_motion = storm_motion)
 
     skewt_plot(isoterms_col = NA, mixing_ratio_col = "", dry_adiabats_col = "", moist_adiabats_col = "",
-               isotherm0 = FALSE , close_par = FALSE, xlab = xlab, ylab = ylab)
-    # Fix function and add this to call: degc = seq(-60, 40, by = 10)
+               isotherm0 = FALSE , close_par = FALSE, xlab = xlab, ylab = ylab, degc = degc)
 
     skewt_lines(output2$dpt, output2$pressure, col = t_col(dew.col, 10), lwd = 2, ptop = 100)
     skewt_lines(output$temp, output$pressure, col = t_col(temp.col, 10), lwd = 2, ptop = 100)
