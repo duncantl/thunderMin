@@ -3,6 +3,15 @@
   + get correct.
       + looks like the upper x limit is wrong.
 
++ wind barbs to match official diagrams.
+
++ √ user-specifiable colors for 2 curves and CAPE.
+   + √ 2 curves - `temp.col`, `dew.col`
+   + √ CAPE boundary - `CAPE.boundary.col`
+   + √ CAPE polygon color - `CAPE.cols`
+      + 2 colors
+
++ allow isotherms, etc. to be displayed.
 
 ## Optional
 
